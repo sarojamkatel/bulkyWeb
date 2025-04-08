@@ -1,12 +1,29 @@
 ﻿@model List<Category>
 
-<h1>this is category view</h1>
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-6 pt-4 pb-3">
+            <h1>Category List</h1>
+        </div>
+
+        <div class="col-6">
+            <a asp-area="" asp-controller="Category" asp-action="Create" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i>Create New Category</a>
+            </div>
+
+
+
+
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
             <th>Category Name</th>
             <th>Display Order</th>
+                    <th></th>
         </tr>   
+
     </thead>
     <tbody>
         @foreach (var category in Model.OrderBy(u=>u.DisplayOrder))
@@ -14,8 +31,20 @@
             <tr>
                 <td>@category.Name</td>
                 <td>@category.DisplayOrder</td>
+                <td>
+                            <a asp-area="" asp-controller="Category" asp-action="Edit" asp-route-id="@category.Id" class="btn btn-primary">
+                                <i class="bi bi-pencil-square"></i>
+                                Edit
+                            </a>
+                            <a asp-area="" asp-controller="Category" asp-action="Delete" asp-route-id="@category.Id" class="btn btn-danger">
+                                <i class="bi bi-trash"></i>
+                                Delete
+                            </a>
+                </td>
             </tr>
         }
    
 </table>
     
+
+</div>

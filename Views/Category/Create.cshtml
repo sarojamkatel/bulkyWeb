@@ -1,0 +1,43 @@
+﻿@model Category
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="pb-2">
+                 <h1>Create New Category</h1>   
+                 <hr /> 
+        </div>
+
+
+
+        @* the validation summary property can be all, modelonly or none, only for knowledge*@
+        @* <div asp-validation-summary="ModelOnly"></div>  *@
+
+        <div class="mb-3 row p-1">
+            <label asp-for="Name" class="form-label"></label>
+            <input  asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3 row p-1 ">
+            <label asp-for="DisplayOrder" class="form-label"></label>
+            <input asp-for="DisplayOrder" class="form-control" />
+            <span asp-validation-for="DisplayOrder" class="text-danger"></span>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-6 col-mid-3">
+                <button type="submit" class="btn btn-primary form-control" >Create</button>
+            </div>
+        
+            <div class="col-6 col-mid-3">
+                <a asp-controller="Category" asp-action="Index" class="btn btn-outline-secondary border form-control">Back to list</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+            @section Scripts {
+                @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+            }   

@@ -11,7 +11,7 @@ namespace bulkyWeb.Data
             
         }
 
-       public DbSet<Category> Category { get; set; } // database table name is category in this case
+       public DbSet<Category> Category { get; set; } // database table name is Category in this case
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
